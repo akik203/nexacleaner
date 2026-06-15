@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "notes": "Initial release of NexaCleaner Pro",
+  "download": "https://github.com/YOUR_USERNAME/nexacleaner/releases/download/v1.0.0/NexaCleanerPro_1.0.0.exe",
+  "early_bird_price": 19,
+  "standard_price": 29,
+  "early_bird_limit": 50,
+  "early_bird_sold": 0,
+  "early_bird_active": true,
+  "early_bird_url": "https://your-paddle-link.com/nexacleaner-early",
+  "standard_url": "https://your-paddle-link.com/nexacleaner-lifetime"
+}

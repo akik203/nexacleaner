@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaCleaner Pro - Ultimate Windows Optimization Suite</title>
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --bg: #0a0f1d;
+            --surface: #141b2d;
+            --text: #ffffff;
+            --muted: #8fa0dd;
+            --accent: #ff007f;
+            --success: #00e676;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(20, 27, 45, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 80%;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero {
+            padding: 150px 10% 80px 10%;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e2942 0%, var(--bg) 70%);
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        .btn {
+            background: linear-gradient(45deg, var(--primary), #4facfe);
+            color: #000;
+            padding: 12px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+        }
+        .features {
+            padding: 60px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #1e2942;
+        }
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .pricing-section {
+            text-align: center;
+            padding: 60px 10%;
+            background: var(--surface);
+        }
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .price-box {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px 40px;
+            border-radius: 10px;
+            background: rgba(10, 15, 29, 0.5);
+            border: 1px solid #1e2942;
+            text-align: center;
+        }
+        .price-box.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        }
+        .current-price {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--text);
+            margin: 10px 0;
+        }
+        .policy-section {
+            padding: 60px 10%;
+            background: var(--bg);
+            text-align: center;
+        }
+        .policy-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #1e2942;
+        }
+        .policy-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .policy-icon {
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--muted);
+            border-top: 1px solid #1e2942;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NexaCleaner Pro</div>
+        <a href="#buy" class="btn" style="padding: 8px 20px;">Get License</a>
+    </header>
+
+    <section class="hero">
+        <h1>Next-Gen PC Optimization Suite</h1>
+        <p>12 comprehensive system tools in one lightweight, highly secured installer. Clean deep clutter, protect your privacy, and unlock maximum performance.</p>
+        <a href="#buy" class="btn">View Launch Pricing</a>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>🚀 Deep System Clean</h3>
+            <p>Removes temporary logs, cache, and hidden junk safely to reclaim gigabytes of disk space.</p>
+        </div>
+        <div class="card">
+            <h3>🛡️ Privacy Protection</h3>
+            <p>Wipes online tracking cookies and local application traces without collecting any user data.</p>
+        </div>
+        <div class="card">
+            <h3>⚡ Performance Booster</h3>
+            <p>Optimizes memory allocation and Windows startup services to ensure maximum speed.</p>
+        </div>
+    </section>
+
+    <section id="buy" class="pricing-section">
+        <div class="badge">🔥 Limited Launch Offer</div>
+        <h2>Secure Your Lifetime License</h2>
+        <p style="color: var(--muted); max-width: 600px; margin: 0 auto 30px auto;">Get permanent access to premium PC maintenance. No subscriptions, no hidden fees.</p>
+        
+        <div class="price-box active">
+            <div style="color: var(--primary); font-weight: bold;">Early Bird (First 50 Customers)</div>
+            <div class="current-price">$19.00</div>
+            <div style="color: var(--muted); font-size: 14px;">Lifetime Access</div>
+        </div>
+
+        <div class="price-box" style="opacity: 0.6;">
+            <div style="color: var(--muted); font-weight: bold;">Standard Price</div>
+            <div class="current-price" style="color: var(--muted);">$29.00</div>
+            <div style="color: var(--muted); font-size: 14px;">After 50 claims</div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="#" class="btn">Purchase via Secure Checkout</a>
+        </div>
+    </section>
+
+    <section class="policy-section">
+        <h2>Transparent Fair-Upgrade Policy</h2>
+        <p style="color: var(--muted); margin-bottom: 40px;">We believe in honest software licensing. Here is exactly how your purchase is protected:</p>
+        
+        <div class="policy-container">
+            <div class="policy-item">
+                <span class="policy-icon">✓</span>
+                <div>
+                    <strong>Free Lifetime Updates (v1.0 to v1.9):</strong> 
+                    <span style="color: var(--muted);">All updates, optimizations, and new tools added within the version 1.x cycle are 100% free for lifetime buyers.</span>
+                </div>
+            </div>
+            <div class="policy-item">
+                <span class="policy-icon">✓</span>
+                <div>
+                    <strong>No Forced Upgrades:</strong> 
+                    <span style="color: var(--muted);">Your version 1.x license will continue to work forever. We will never force you to upgrade or disable your software.</span>
+                </div>
+            </div>
+            <div class="policy-item">
+                <span class="policy-icon">✓</span>
+                <div>
+                    <strong>Heavy Discount on Major Releases (v2.0):</strong> 
+                    <span style="color: var(--muted);">When NexaCleaner v2.0 launches with massive structural upgrades, existing customers can choose to upgrade for just 10 AUD (instead of the standard 29 AUD price for new users).</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>&copy; 2026 Nanosoft Computing. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

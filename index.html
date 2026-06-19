@@ -13,6 +13,7 @@
             --muted: #8fa0dd;
             --accent: #ff007f;
             --success: #00e676;
+            --modal-bg: rgba(10, 15, 29, 0.95);
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -66,6 +67,7 @@
             transition: 0.3s;
             display: inline-block;
             cursor: pointer;
+            border: none;
         }
         .btn:hover {
             transform: translateY(-2px);
@@ -154,6 +156,61 @@
             color: var(--muted);
             border-top: 1px solid #1e2942;
         }
+        .footer-links {
+            margin-top: 15px;
+        }
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Legal Modals Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 650px;
+            max-height: 70vh;
+            overflow-y: auto;
+            border: 1px solid var(--primary);
+            position: relative;
+            text-align: left;
+        }
+        .modal-content h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: var(--muted);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .close-modal:hover {
+            color: var(--accent);
+        }
     </style>
 </head>
 <body>
@@ -192,9 +249,7 @@
         <div class="price-box active">
             <div style="color: var(--primary); font-weight: bold;">Early Bird (First 50 Customers)</div>
             <div class="current-price">$19.00</div>
-            <div style="color: var(--muted); font-size: 14px;">
-    v1.x lifetime · v2.0 upgrade at 10 AUD
-</div>
+            <div style="color: var(--muted); font-size: 14px;">Lifetime Access</div>
         </div>
 
         <div class="price-box" style="opacity: 0.6;">
@@ -204,7 +259,7 @@
         </div>
 
         <div style="margin-top: 20px;">
-            <a href="#" class="btn">Purchase via Secure Checkout — Coming Soon</a>
+            <a href="#" class="btn">Purchase via Secure Checkout</a>
         </div>
     </section>
 
@@ -236,34 +291,78 @@
             </div>
         </div>
     </section>
-    <section id="privacy" style="padding: 60px 10%; background: var(--surface);">
-    <h2 style="text-align:center">Privacy Policy</h2>
-    <div style="max-width:700px; margin: 0 auto; color: var(--muted);">
-        <p><strong style="color:white">Data Collection:</strong> 
-        NexaCleaner Pro does not collect, store, or transmit 
-        any personal data. All operations run locally on your device.</p>
-        
-        <p><strong style="color:white">License Verification:</strong> 
-        Your license key is verified locally using your hardware ID. 
-        No data is sent to external servers.</p>
-        
-        <p><strong style="color:white">Updates:</strong> 
-        The app checks GitHub for version updates only. 
-        No personal information is transmitted.</p>
-        
-        <p><strong style="color:white">Contact:</strong> 
-        support@nexacleaner.com</p>
-        
-        <p style="font-size:12px">Last updated: June 2026</p>
+
+    <!-- LEGAL MODALS (Required by Paddle) -->
+    
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated: June 2026</strong></p>
+            <p>At NexaCleaner Pro (published under Nanosoft Computing), we respect your privacy. This policy outlines how we handle data.</p>
+            <h3>1. Data Collection</h3>
+            <p>NexaCleaner Pro is a localized desktop utility. It runs completely offline on your device. We do not track, collect, or store any personal data, system file logs, or application metrics.</p>
+            <h3>2. Order Processing</h3>
+            <p>Our order processing is securely managed by Paddle (our Merchant of Record). Paddle collects transaction details such as your email address and payment information required to issue your license code. Please refer to Paddle's Privacy Policy for more information.</p>
+            <h3>3. Contact Us</h3>
+            <p>If you have any questions, contact us via email at: nanosoft.computers.au@gmail.com</p>
+        </div>
     </div>
-</section>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Terms of Service</h2>
+            <p><strong>Last Updated: June 2026</strong></p>
+            <p>Welcome to NexaCleaner Pro. By purchasing or installing our software, you agree to these terms.</p>
+            <h3>1. License Grant</h3>
+            <p>Nanosoft Computing grants you a non-exclusive, non-transferable lifetime license to use NexaCleaner Pro on your personal computers under the version 1.x cycle.</p>
+            <h3>2. Restrictions</h3>
+            <p>You may not decompile, reverse engineer, modify, or redistribute this utility without explicit written permission from Nanosoft Computing.</p>
+            <h3>3. Limitation of Liability</h3>
+            <p>The software is provided "as is". While we do our best to optimize system performance safely, Nanosoft Computing cannot be held liable for any data loss or hardware issues resulting from system modifications.</p>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('refundModal')">&times;</span>
+            <h2>Refund Policy</h2>
+            <p><strong>Last Updated: June 2026</strong></p>
+            <p>We want you to be completely satisfied with NexaCleaner Pro.</p>
+            <h3>1. 14-Day Money-Back Guarantee</h3>
+            <p>If the utility fails to perform optimization tasks on your Windows device or encounters unresolved technical bugs, you are eligible for a full refund within 14 days of your original purchase date.</p>
+            <h3>2. How to Request a Refund</h3>
+            <p>To initiate a refund, please send an email to nanosoft.computers.au@gmail.com with your Paddle checkout order number. Once processed, your activation license code will be deactivated.</p>
+        </div>
+    </div>
 
     <div class="footer">
         <p>&copy; 2026 Nanosoft Computing. All rights reserved.</p>
-<p>Support: <a href="mailto:your@gmail.com" 
-   style="color: var(--primary)">your@gmail.com</a></p>
-<p><a href="#privacy" style="color: var(--muted)">Privacy Policy</a></p>
+        <div class="footer-links">
+            <a onclick="openModal('privacyModal')">Privacy Policy</a> | 
+            <a onclick="openModal('termsModal')">Terms of Service</a> | 
+            <a onclick="openModal('refundModal')">Refund Policy</a>
+        </div>
+        <p style="font-size: 12px; margin-top: 15px; color: #5a6b9c;">Support Inquiries: nanosoft.computers.au@gmail.com</p>
     </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>

@@ -89,11 +89,27 @@
             color: var(--primary);
             margin-top: 0;
         }
-        .pricing-section {
+        --.pricing-section {
+         --   text-align: center;
+        --    padding: 60px 10%;
+         --   background: var(--surface);
+        --}
+		
+		.pricing-section {
             text-align: center;
             padding: 60px 10%;
             background: var(--surface);
         }
+        /* هذا العنصر الجديد سيضمن ترتيب الكروت بشكل أفقي ممتاز */
+        .price-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+		
         .badge {
             background: var(--accent);
             color: white;
@@ -106,15 +122,27 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        ..price-box {
-            display: inline-block;
-            margin: 20px;
-            padding: 20px 20px; /* تم تعديلها لتناسب النص */
-            border-radius: 10px;
+        --..price-box {
+        --    display: inline-block;
+         --   margin: 20px;
+        --    padding: 20px 20px; /* تم تعديلها لتناسب النص */
+        --    border-radius: 10px;
+         --   background: rgba(10, 15, 29, 0.5);
+       -- --    border: 1px solid #1e2942;
+        --    text-align: center;
+        --}
+		
+		.price-box {
             background: rgba(10, 15, 29, 0.5);
             border: 1px solid #1e2942;
+            border-radius: 10px;
+            padding: 30px 25px;
             text-align: center;
+            width: 280px; /* تحديد عرض ثابت يمنع انضغاط النصوص داخل الكروت */
+            box-sizing: border-box;
+            transition: 0.3s;
         }
+		
         .price-box.active {
             border-color: var(--primary);
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
@@ -246,19 +274,23 @@
         <h2>Secure Your Lifetime License</h2>
         <p style="color: var(--muted); max-width: 600px; margin: 0 auto 30px auto;">Get permanent access to premium PC maintenance. No subscriptions, no hidden fees.</p>
         
-        <div class="price-box active">
-            <div style="color: var(--primary); font-weight: bold;">Early Bird (First 50 Customers)</div>
-            <div class="current-price">$19.00</div>
-            <div style="color: var(--muted); font-size: 14px;">Lifetime v1.x Updates</div>
-        </div>
+        <!-- بداية الحاوي المرن الجديد -->
+        <div class="price-container">
+            <div class="price-box active">
+                <div style="color: var(--primary); font-weight: bold;">Early Bird (First 50 Customers)</div>
+                <div class="current-price">$19.00</div>
+                <div style="color: var(--muted); font-size: 14px;">Lifetime v1.x Updates</div>
+            </div>
 
-        <div class="price-box" style="opacity: 0.6;">
-            <div style="color: var(--muted); font-weight: bold;">Standard Price</div>
-            <div class="current-price" style="color: var(--muted);">$29.00</div>
-            <div style="color: var(--muted); font-size: 14px;">After 50 claims</div>
+            <div class="price-box" style="opacity: 0.6;">
+                <div style="color: var(--muted); font-weight: bold;">Standard Price</div>
+                <div class="current-price" style="color: var(--muted);">$29.00</div>
+                <div style="color: var(--muted); font-size: 14px;">After 50 claims</div>
+            </div>
         </div>
+        <!-- نهاية الحاوي المرن الجديد -->
 
-        <div style="margin-top: 20px;">
+        <div style="margin-top: 40px;">
             <a href="#" class="btn">Purchase via Secure Checkout</a>
         </div>
     </section>

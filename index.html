@@ -1,400 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexaCleaner Pro - Ultimate Windows Optimization Suite</title>
-    <style>
-        :root {
-            --primary: #00f2fe;
-            --bg: #0a0f1d;
-            --surface: #141b2d;
-            --text: #ffffff;
-            --muted: #8fa0dd;
-            --accent: #ff007f;
-            --success: #00e676;
-            --modal-bg: rgba(10, 15, 29, 0.95);
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background: rgba(20, 27, 45, 0.8);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 80%;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            background: linear-gradient(45deg, var(--primary), #4facfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero {
-            padding: 150px 10% 80px 10%;
-            text-align: center;
-            background: radial-gradient(circle at center, #1e2942 0%, var(--bg) 70%);
-        }
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
-        .btn {
-            background: linear-gradient(45deg, var(--primary), #4facfe);
-            color: #000;
-            padding: 12px 35px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
-        }
-        .features {
-            padding: 60px 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: var(--surface);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #1e2942;
-        }
-        .card h3 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-        --.pricing-section {
-         --   text-align: center;
-        --    padding: 60px 10%;
-         --   background: var(--surface);
-        --}
-		
-		.pricing-section {
-            text-align: center;
-            padding: 60px 10%;
-            background: var(--surface);
-        }
-        /* هذا العنصر الجديد سيضمن ترتيب الكروت بشكل أفقي ممتاز */
-        .price-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 30px;
-        }
-		
-        .badge {
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        --..price-box {
-        --    display: inline-block;
-         --   margin: 20px;
-        --    padding: 20px 20px; /* تم تعديلها لتناسب النص */
-        --    border-radius: 10px;
-         --   background: rgba(10, 15, 29, 0.5);
-       -- --    border: 1px solid #1e2942;
-        --    text-align: center;
-        --}
-		
-		.price-box {
-            background: rgba(10, 15, 29, 0.5);
-            border: 1px solid #1e2942;
-            border-radius: 10px;
-            padding: 30px 25px;
-            text-align: center;
-            width: 280px; /* تحديد عرض ثابت يمنع انضغاط النصوص داخل الكروت */
-            box-sizing: border-box;
-            transition: 0.3s;
-        }
-		
-        .price-box.active {
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
-        }
-        .current-price {
-            font-size: 48px;
-            font-weight: bold;
-            color: var(--text);
-            margin: 10px 0;
-        }
-        .policy-section {
-            padding: 60px 10%;
-            background: var(--bg);
-            text-align: center;
-        }
-        .policy-container {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: left;
-            background: var(--surface);
-            padding: 40px;
-            border-radius: 10px;
-            border: 1px solid #1e2942;
-        }
-        .policy-item {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-        }
-        .policy-icon {
-            color: var(--success);
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 20px;
-        }
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--muted);
-            border-top: 1px solid #1e2942;
-        }
-        .footer-links {
-            margin-top: 15px;
-        }
-        .footer-links a {
-            color: var(--primary);
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Legal Modals Styling */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
-        .modal-content {
-            background: var(--surface);
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 650px;
-            max-height: 70vh;
-            overflow-y: auto;
-            border: 1px solid var(--primary);
-            position: relative;
-            text-align: left;
-        }
-        .modal-content h2 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            color: var(--muted);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .close-modal:hover {
-            color: var(--accent);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexaCleaner Pro — Windows PC Cleaner</title>
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --bg:        #0d1117;
+      --surface:   #161b22;
+      --surface2:  #1c2330;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --muted:     #8b949e;
+      --accent:    #e36209;
+      --accent-dk: #b34500;
+      --accent-lt: #f0883e;
+      --green:     #3fb950;
+      --blue:      #58a6ff;
+      --radius:    10px;
+      --mono:      'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 8%;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--accent-lt); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 130px 8% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 440px;
+      margin-bottom: 32px;
+    }
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent-lt); transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--muted);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      transition: border-color .2s, color .2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+    /* ── TERMINAL mockup ── */
+    .terminal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .terminal-bar {
+      background: var(--surface2);
+      padding: 10px 14px;
+      display: flex; align-items: center; gap: 7px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+    .terminal-title {
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      margin-left: auto; margin-right: auto;
+    }
+    .terminal-body {
+      padding: 20px;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 2;
+    }
+    .t-g  { color: var(--green); }
+    .t-b  { color: var(--blue); }
+    .t-o  { color: var(--accent-lt); }
+    .t-m  { color: var(--muted); }
+    .t-w  { color: var(--text); }
+    .t-cursor::after {
+      content: '█';
+      animation: blink 1s step-start infinite;
+      color: var(--accent);
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 70px 8%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color .2s;
+    }
+    .feature-card:hover { border-color: var(--accent); }
+    .feature-icon {
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 8%;
+    }
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted);
+    }
+    .trust-item span:first-child { color: var(--green); font-size: 16px; }
+
+    /* ── PRICING ── */
+    .pricing-wrap {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 70px 8%;
+    }
+    .pricing-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .price-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .price-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent), 0 8px 30px rgba(227,98,9,.15);
+      position: relative;
+    }
+    .price-badge {
+      position: absolute;
+      top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .price-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .price-amount {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--text);
+      line-height: 1;
+    }
+    .price-currency { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+    .price-note { font-size: 12px; color: var(--muted); margin-top: 6px; margin-bottom: 24px; }
+    .price-features { text-align: left; margin-bottom: 28px; }
+    .price-features li {
+      font-size: 13px; color: var(--muted);
+      padding: 5px 0;
+      list-style: none;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .price-features li::before { content: '✓'; color: var(--green); flex-shrink: 0; }
+    .price-card.dimmed { opacity: .55; }
+
+    /* ── POLICY ── */
+    .policy-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .policy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .policy-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+    .policy-card p  { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* ── MODAL ── */
+    .modal {
+      display: none; position: fixed;
+      inset: 0; z-index: 200;
+      background: rgba(0,0,0,.8);
+      backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      max-width: 620px; width: 90%;
+      max-height: 80vh; overflow-y: auto;
+      position: relative;
+    }
+    .modal-box h2 { font-size: 20px; margin-bottom: 16px; color: var(--text); }
+    .modal-box h3 { font-size: 14px; font-weight: 700; margin: 20px 0 6px; }
+    .modal-box p  { font-size: 13px; color: var(--muted); line-height: 1.8; }
+    .modal-box a  { color: var(--blue); }
+    .modal-close {
+      position: absolute; top: 16px; right: 20px;
+      font-size: 22px; cursor: pointer; color: var(--muted);
+      background: none; border: none; line-height: 1;
+    }
+    .modal-close:hover { color: var(--text); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 8%;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    footer p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .footer-links button {
+      background: none; border: none; cursor: pointer;
+      font-size: 13px; color: var(--blue); text-decoration: underline;
+    }
+    .footer-links button:hover { color: var(--text); }
+    .sold-by {
+      font-size: 11px; color: var(--muted);
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; padding-top: 100px; }
+      .pricing-cards { grid-template-columns: 1fr; }
+      nav { padding: 12px 5%; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">NexaCleaner Pro</div>
-        <a href="#buy" class="btn" style="padding: 8px 20px;">Get License</a>
-    </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Nexa<span>Cleaner</span> Pro</div>
+  <a href="#pricing" class="nav-cta">Get License — A$19</a>
+</nav>
 
-    <section class="hero">
-        <h1>Next-Gen PC Optimization Suite</h1>
-        <p>12 comprehensive system tools in one lightweight, highly secured installer. Clean deep clutter, protect your privacy, and unlock maximum performance.</p>
-        <a href="#buy" class="btn">View Launch Pricing</a>
-    </section>
-
-    <section class="features">
-        <div class="card">
-            <h3>🚀 Deep System Clean</h3>
-            <p>Removes temporary logs, cache, and hidden junk safely to reclaim gigabytes of disk space.</p>
-        </div>
-        <div class="card">
-            <h3>🛡️ Privacy Protection</h3>
-            <p>Wipes online tracking cookies and local application traces without collecting any user data.</p>
-        </div>
-        <div class="card">
-            <h3>⚡ Performance Booster</h3>
-            <p>Optimizes memory allocation and Windows startup services to ensure maximum speed.</p>
-        </div>
-    </section>
-
-    <section id="buy" class="pricing-section">
-        <div class="badge">🔥 Limited Launch Offer</div>
-        <h2>Secure Your Lifetime License</h2>
-        <p style="color: var(--muted); max-width: 600px; margin: 0 auto 30px auto;">Get permanent access to premium PC maintenance. No subscriptions, no hidden fees.</p>
-        
-        <!-- بداية الحاوي المرن الجديد -->
-        <div class="price-container">
-            <div class="price-box active">
-                <div style="color: var(--primary); font-weight: bold;">Early Bird (First 50 Customers)</div>
-                <div class="current-price">$19.00</div>
-                <div style="color: var(--muted); font-size: 14px;">Lifetime v1.x Updates</div>
-            </div>
-
-            <div class="price-box" style="opacity: 0.6;">
-                <div style="color: var(--muted); font-weight: bold;">Standard Price</div>
-                <div class="current-price" style="color: var(--muted);">$29.00</div>
-                <div style="color: var(--muted); font-size: 14px;">After 50 claims</div>
-            </div>
-        </div>
-        <!-- نهاية الحاوي المرن الجديد -->
-
-        <div style="margin-top: 40px;">
-            <a href="#" class="btn">Purchase via Secure Checkout</a>
-        </div>
-    </section>
-
-    <section class="policy-section">
-        <h2>Transparent Fair-Upgrade Policy</h2>
-        <p style="color: var(--muted); margin-bottom: 40px;">We believe in honest software licensing. Here is exactly how your purchase is protected:</p>
-        
-        <div class="policy-container">
-            <div class="policy-item">
-                <span class="policy-icon">✓</span>
-                <div>
-                    <strong>Free Lifetime Updates (v1.0 to v1.9):</strong> 
-                    <span style="color: var(--muted);">All updates, optimizations, and new tools added within the version 1.x cycle are 100% free for lifetime buyers.</span>
-                </div>
-            </div>
-            <div class="policy-item">
-                <span class="policy-icon">✓</span>
-                <div>
-                    <strong>No Forced Upgrades:</strong> 
-                    <span style="color: var(--muted);">Your version 1.x license will continue to work forever. We will never force you to upgrade or disable your software.</span>
-                </div>
-            </div>
-            <div class="policy-item">
-                <span class="policy-icon">✓</span>
-                <div>
-                    <strong>Heavy Discount on Major Releases (v2.0):</strong> 
-                    <span style="color: var(--muted);">When NexaCleaner v2.0 launches with massive structural upgrades, existing customers can choose to upgrade for just 10 AUD (instead of the standard 29 AUD price for new users).</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LEGAL MODALS (Required by Paddle) -->
-    
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h2>Privacy Policy</h2>
-            <p><strong>Last Updated: June 2026</strong></p>
-            <p>At NexaCleaner Pro (published under Nanosoft Computing), we respect your privacy. This policy outlines how we handle data.</p>
-            <h3>1. Data Collection</h3>
-            <p>NexaCleaner Pro is a localized desktop utility. It runs completely offline on your device. We do not track, collect, or store any personal data, system file logs, or application metrics.</p>
-            <h3>2. Order Processing</h3>
-            <p>Our order processing is securely managed by Paddle (our Merchant of Record). Paddle collects transaction details such as your email address and payment information required to issue your license code. Please refer to Paddle's Privacy Policy for more information.</p>
-            <h3>3. Contact Us</h3>
-            <p>If you have any questions, contact us via email at: nanosoft.computers.au@gmail.com</p>
-        </div>
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">// Windows PC Cleaner · v1.0 · Launching July 3</div>
+    <h1>Clean your PC.<br><em>Own your license.</em><br>No subscriptions.</h1>
+    <p class="hero-sub">
+      NexaCleaner Pro removes junk files, clears tracking traces, and manages
+      startup apps — all locally on your machine. One payment, free updates
+      through v1.x, no data collected.
+    </p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-primary">View Early Bird Pricing</a>
+      <a href="https://akik203.github.io/nexacleaner" target="_blank" class="btn-ghost">View Landing Page →</a>
     </div>
+  </div>
 
-    <!-- Terms of Service Modal -->
-    <div id="termsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            <h2>Terms of Service</h2>
-            <p><strong>Last Updated: June 2026</strong></p>
-            <p>Welcome to NexaCleaner Pro. By purchasing or installing our software, you agree to these terms.</p>
-            <h3>1. License Grant</h3>
-            <p>Nanosoft Computing grants you a non-exclusive, non-transferable lifetime license to use NexaCleaner Pro on your personal computers under the version 1.x cycle.</p>
-            <h3>2. Restrictions</h3>
-            <p>You may not decompile, reverse engineer, modify, or redistribute this utility without explicit written permission from Nanosoft Computing.</p>
-            <h3>3. Limitation of Liability</h3>
-            <p>The software is provided "as is". While we do our best to optimize system performance safely, Nanosoft Computing cannot be held liable for any data loss or hardware issues resulting from system modifications.</p>
-        </div>
+  <!-- Terminal mockup -->
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-r"></div>
+      <div class="dot dot-y"></div>
+      <div class="dot dot-g"></div>
+      <span class="terminal-title">NexaCleaner Pro · Scan Report</span>
     </div>
-
-    <!-- Refund Policy Modal -->
-    <div id="refundModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('refundModal')">&times;</span>
-            <h2>Refund Policy</h2>
-            <p><strong>Last Updated: June 2026</strong></p>
-            <p>We want you to be completely satisfied with NexaCleaner Pro.</p>
-            <h3>1. 14-Day Money-Back Guarantee</h3>
-            <p>If the utility fails to perform optimization tasks on your Windows device or encounters unresolved technical bugs, you are eligible for a full refund within 14 days of your original purchase date.</p>
-            <h3>2. How to Request a Refund</h3>
-            <p>To initiate a refund, please send an email to nanosoft.computers.au@gmail.com with your Paddle checkout order number. Once processed, your activation license code will be deactivated.</p>
-        </div>
+    <div class="terminal-body">
+      <div><span class="t-m">[ </span><span class="t-g">✔</span><span class="t-m"> ]</span> <span class="t-w">Scanning system junk...</span></div>
+      <div><span class="t-m">[ </span><span class="t-g">✔</span><span class="t-m"> ]</span> <span class="t-w">Windows Temp</span>  <span class="t-o">→ 214 MB</span></div>
+      <div><span class="t-m">[ </span><span class="t-g">✔</span><span class="t-m"> ]</span> <span class="t-w">Browser Cache</span> <span class="t-o">→ 312 MB</span></div>
+      <div><span class="t-m">[ </span><span class="t-g">✔</span><span class="t-m"> ]</span> <span class="t-w">Registry Issues</span><span class="t-o">→ 163</span></div>
+      <div><span class="t-m">[ </span><span class="t-g">✔</span><span class="t-m"> ]</span> <span class="t-w">Privacy Traces</span><span class="t-o">→ 1,107</span></div>
+      <div>&nbsp;</div>
+      <div><span class="t-b">Total recoverable:</span> <span class="t-g" style="font-weight:700">563 MB</span></div>
+      <div><span class="t-m">No background service. No telemetry.</span></div>
+      <div class="t-cursor">&nbsp;</div>
     </div>
+  </div>
+</div>
 
-    <div class="footer">
-        <p>&copy; 2026 Nanosoft Computing. All rights reserved.</p>
-        <div class="footer-links">
-            <a onclick="openModal('privacyModal')">Privacy Policy</a> | 
-            <a onclick="openModal('termsModal')">Terms of Service</a> | 
-            <a onclick="openModal('refundModal')">Refund Policy</a>
-        </div>
-        <p style="font-size: 12px; margin-top: 15px; color: #5a6b9c;">Support Inquiries: nanosoft.computers.au@gmail.com</p>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span>✓</span><span>No background services</span></div>
+    <div class="trust-item"><span>✓</span><span>No telemetry or data collection</span></div>
+    <div class="trust-item"><span>✓</span><span>One-time purchase</span></div>
+    <div class="trust-item"><span>✓</span><span>Free updates through v1.x</span></div>
+    <div class="trust-item"><span>✓</span><span>14-day refund guarantee</span></div>
+    <div class="trust-item"><span>✓</span><span>Built in Australia · .NET / Windows</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section">
+  <div class="section-label">// what it does</div>
+  <h2>12 tools. One installer.<br>Nothing running in the background.</h2>
+  <p class="section-sub">
+    Every module runs on-demand. NexaCleaner Pro never installs a background
+    service, never calls home, and never touches files outside the locations
+    you explicitly select.
+  </p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🧹</div>
+      <h3>Junk File Cleaner</h3>
+      <p>Removes Windows Temp, application caches, browser junk, and log files.
+         Scans first, deletes only what you approve.</p>
     </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Privacy Cleaner</h3>
+      <p>Clears browser cookies, recent file lists, clipboard content, and
+         Windows tracking traces — fully offline, nothing transmitted.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🗂️</div>
+      <h3>Registry Cleaner</h3>
+      <p>Scans for invalid app paths, broken file extensions, and orphaned keys.
+         Backs up before fixing. Safe-first approach.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚀</div>
+      <h3>Startup Manager</h3>
+      <p>Lists every program that runs at Windows startup, shows its impact
+         level, and lets you disable or delete entries safely.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧠</div>
+      <h3>Memory Optimizer</h3>
+      <p>Identifies and frees unused RAM allocation on demand without
+         aggressive flushing that can slow your system.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <h3>Protection Module</h3>
+      <p>Blocks known tracking domains via the Windows hosts file.
+         Optional, user-controlled, and fully reversible.</p>
+    </div>
+  </div>
+</div>
 
-    <script>
-        function openModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-    </script>
+<!-- PRICING -->
+<div class="pricing-wrap" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-label" style="text-align:center">// pricing</div>
+    <h2 style="text-align:center; font-size:clamp(22px,3vw,34px); font-weight:800; letter-spacing:-0.5px; margin-bottom:10px;">
+      One-time purchase.<br>Yours to keep.
+    </h2>
+    <p style="text-align:center; color:var(--muted); font-size:15px; margin-bottom:48px;">
+      A$19 for the first 50 customers — then A$29. No subscriptions, ever.<br>
+      Payment processed securely by <strong style="color:var(--text)">Lemon Squeezy</strong>
+      (Merchant of Record — handles GST automatically).
+    </p>
 
+    <div class="pricing-cards">
+      <!-- Early Bird -->
+      <div class="price-card featured">
+        <div class="price-badge">🔥 Early Bird</div>
+        <div class="price-label">First 50 customers</div>
+        <div class="price-amount">
+          <span class="price-currency">A$</span>19
+        </div>
+        <div class="price-note">One-time · no subscription</div>
+        <ul class="price-features">
+          <li>NexaCleaner Pro v1.0 license</li>
+          <li>All v1.x updates free forever</li>
+          <li>12 cleaning &amp; maintenance tools</li>
+          <li>Discounted upgrade to v2.0 (A$10)</li>
+          <li>14-day money-back guarantee</li>
+          <li>Email support</li>
+        </ul>
+        <!-- REPLACE YOUR_LEMONSQUEEZY_LINK with your actual checkout URL after creating your product -->
+        <a href="YOUR_LEMONSQUEEZY_CHECKOUT_LINK"
+           class="btn-primary lemonsqueezy-button"
+           style="width:100%; text-align:center; display:block;">
+          Purchase — A$19
+        </a>
+      </div>
+
+      <!-- Standard -->
+      <div class="price-card dimmed">
+        <div class="price-label">Standard price (after 50 sales)</div>
+        <div class="price-amount" style="color:var(--muted)">
+          <span class="price-currency" style="color:var(--muted)">A$</span>29
+        </div>
+        <div class="price-note">Same license, same features</div>
+        <ul class="price-features">
+          <li>NexaCleaner Pro v1.0 license</li>
+          <li>All v1.x updates free forever</li>
+          <li>12 cleaning &amp; maintenance tools</li>
+          <li>Discounted upgrade to v2.0 (A$10)</li>
+          <li>14-day money-back guarantee</li>
+          <li>Email support</li>
+        </ul>
+        <div class="btn-ghost" style="text-align:center; opacity:.5; cursor:default;">
+          Available after Early Bird
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UPGRADE POLICY -->
+<div class="section">
+  <div class="section-label">// fair upgrade policy</div>
+  <h2>No hidden pricing. Ever.</h2>
+  <p class="section-sub">
+    We publish our version upgrade policy upfront so you know exactly what
+    you're buying before you pay.
+  </p>
+  <div class="policy-cards">
+    <div class="policy-card">
+      <h3>✓ Free v1.x Updates</h3>
+      <p>Every feature, fix, and improvement released between v1.0 and v1.9 is
+         free for all license holders. Your purchase does not expire.</p>
+    </div>
+    <div class="policy-card">
+      <h3>✓ No Forced Migration</h3>
+      <p>Your v1.x license remains active and fully functional indefinitely.
+         We will never remotely disable a purchased build.</p>
+    </div>
+    <div class="policy-card">
+      <h3>✓ Discounted v2.0 Upgrade</h3>
+      <p>When v2.0 ships with major structural changes, existing license holders
+         can upgrade for A$10 — not the standard A$29 price.</p>
+    </div>
+    <div class="policy-card">
+      <h3>✓ 14-Day Refund</h3>
+      <p>If the software doesn't work on your compatible Windows machine,
+         email us within 14 days for a full refund. No questions asked.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div id="m-privacy" class="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('m-privacy')" aria-label="Close">×</button>
+    <h2>Privacy Policy</h2>
+    <p><strong>Last updated: June 2026</strong> · Published by Nanosoft Computing (ABN holder, Australia)</p>
+    <h3>Data Collection</h3>
+    <p>NexaCleaner Pro is a locally installed desktop application. All cleaning operations run entirely on your device. The software does not collect, transmit, or store any personal data, usage statistics, or system information to external servers.</p>
+    <p>The only external network connection the application makes is a version check against a public GitHub URL to notify you of available updates. No personal identifiers are sent in this request.</p>
+    <h3>License Validation</h3>
+    <p>License keys are validated locally using a hardware fingerprint and a cryptographic signature. No online activation server is contacted after purchase.</p>
+    <h3>Payment Processing</h3>
+    <p>Purchases are processed by <a href="https://www.lemonsqueezy.com" target="_blank">Lemon Squeezy</a>, who acts as Merchant of Record. Lemon Squeezy handles payment data, GST/tax compliance, and receipt delivery. Please refer to <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Lemon Squeezy's Privacy Policy</a> for details on how transactional data is handled.</p>
+    <h3>Contact</h3>
+    <p>nanosoft.computers.au@gmail.com</p>
+  </div>
+</div>
+
+<div id="m-terms" class="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('m-terms')" aria-label="Close">×</button>
+    <h2>Terms of Service</h2>
+    <p><strong>Last updated: June 2026</strong></p>
+    <h3>License Grant</h3>
+    <p>Nanosoft Computing grants you a non-exclusive, non-transferable personal license to install and use NexaCleaner Pro on machines you own or control, within the v1.x release cycle.</p>
+    <h3>Permitted Use</h3>
+    <p>The software is licensed for personal and small-business use on compatible Windows devices. You may install it on up to 2 machines per license.</p>
+    <h3>Restrictions</h3>
+    <p>You may not reverse engineer, redistribute, resell, or sublicense this software without written permission from Nanosoft Computing.</p>
+    <h3>Limitation of Liability</h3>
+    <p>The software is provided as-is. While every effort has been made to ensure safe operation, Nanosoft Computing is not liable for data loss resulting from user-approved cleaning operations. Always review scan results before confirming a clean.</p>
+    <h3>Governing Law</h3>
+    <p>These terms are governed by the laws of New South Wales, Australia.</p>
+  </div>
+</div>
+
+<div id="m-refund" class="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('m-refund')" aria-label="Close">×</button>
+    <h2>Refund Policy</h2>
+    <p><strong>Last updated: June 2026</strong></p>
+    <h3>14-Day Money-Back Guarantee</h3>
+    <p>If NexaCleaner Pro fails to function correctly on your compatible Windows device (Windows 10 or Windows 11, 64-bit), you are entitled to a full refund within 14 days of purchase.</p>
+    <h3>How to Request</h3>
+    <p>Email <strong>nanosoft.computers.au@gmail.com</strong> with your Lemon Squeezy order number and a brief description of the issue. Refunds are processed within 5 business days. The associated license key will be revoked upon processing.</p>
+    <h3>Exclusions</h3>
+    <p>Refunds are not available after 14 days, or where the software has functioned as described and the refund is requested due to a change of mind alone.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Nanosoft Computing · All rights reserved · nanosoft.computers.au@gmail.com</p>
+    <div class="footer-links">
+      <button onclick="openModal('m-privacy')">Privacy Policy</button>
+      <button onclick="openModal('m-terms')">Terms of Service</button>
+      <button onclick="openModal('m-refund')">Refund Policy</button>
+    </div>
+    <p class="sold-by">
+      Payments processed by <a href="https://www.lemonsqueezy.com" target="_blank"
+        style="color:var(--blue)">Lemon Squeezy</a> — Merchant of Record.
+      GST/VAT handled automatically. Prices shown in AUD.
+    </p>
+  </div>
+</footer>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal').forEach(m => {
+    m.addEventListener('click', e => {
+      if (e.target === m) closeModal(m.id);
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal.open')
+        .forEach(m => closeModal(m.id));
+    }
+  });
+</script>
 </body>
 </html>

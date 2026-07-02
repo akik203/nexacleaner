@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NexaCleaner Pro — Windows PC Cleaner</title>
-  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
   <style>
-    /* ── Tokens ── */
     :root {
       --bg:        #0d1117;
       --surface:   #161b22;
@@ -32,7 +30,6 @@
       line-height: 1.6;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -41,99 +38,59 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
-      color: var(--text);
-    }
+    .nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; color: var(--text); }
     .nav-logo span { color: var(--accent); }
     .nav-cta {
-      background: var(--accent);
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
+      background: var(--accent); color: #fff;
+      padding: 8px 20px; border-radius: 6px;
+      text-decoration: none; font-size: 14px; font-weight: 600;
       transition: background .2s;
     }
     .nav-cta:hover { background: var(--accent-lt); }
 
-    /* ── HERO ── */
     .hero {
       padding: 130px 8% 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      max-width: 1100px; margin: 0 auto;
     }
     .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--accent);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+      font-family: var(--mono); font-size: 12px;
+      color: var(--accent); letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 16px;
     }
     .hero h1 {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+      line-height: 1.2; letter-spacing: -1px; margin-bottom: 20px;
     }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
-    .hero-sub {
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 440px;
-      margin-bottom: 32px;
-    }
-    .hero-actions {
-      display: flex; gap: 12px; flex-wrap: wrap;
-    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub { color: var(--muted); font-size: 16px; max-width: 440px; margin-bottom: 32px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
     .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      border: none;
-      cursor: pointer;
-      transition: background .2s, transform .15s;
-      display: inline-block;
+      background: var(--accent); color: #fff;
+      padding: 12px 28px; border-radius: var(--radius);
+      text-decoration: none; font-weight: 700; font-size: 15px;
+      border: none; cursor: pointer;
+      transition: background .2s, transform .15s; display: inline-block;
     }
     .btn-primary:hover { background: var(--accent-lt); transform: translateY(-1px); }
 
     .btn-ghost {
-      color: var(--muted);
-      padding: 12px 20px;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      transition: border-color .2s, color .2s;
-      display: inline-block;
+      color: var(--muted); padding: 12px 20px;
+      border-radius: var(--radius); text-decoration: none;
+      font-size: 14px; border: 1px solid var(--border);
+      transition: border-color .2s, color .2s; display: inline-block;
     }
     .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
 
-    /* ── TERMINAL mockup ── */
     .terminal {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
     .terminal-bar {
-      background: var(--surface2);
-      padding: 10px 14px;
+      background: var(--surface2); padding: 10px 14px;
       display: flex; align-items: center; gap: 7px;
       border-bottom: 1px solid var(--border);
     }
@@ -145,82 +102,41 @@
       font-family: var(--mono); font-size: 11px; color: var(--muted);
       margin-left: auto; margin-right: auto;
     }
-    .terminal-body {
-      padding: 20px;
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 2;
-    }
-    .t-g  { color: var(--green); }
-    .t-b  { color: var(--blue); }
-    .t-o  { color: var(--accent-lt); }
-    .t-m  { color: var(--muted); }
-    .t-w  { color: var(--text); }
-    .t-cursor::after {
-      content: '█';
-      animation: blink 1s step-start infinite;
-      color: var(--accent);
-    }
+    .terminal-body { padding: 20px; font-family: var(--mono); font-size: 13px; line-height: 2; }
+    .t-g { color: var(--green); }
+    .t-b { color: var(--blue); }
+    .t-o { color: var(--accent-lt); }
+    .t-m { color: var(--muted); }
+    .t-w { color: var(--text); }
+    .t-cursor::after { content: '█'; animation: blink 1s step-start infinite; color: var(--accent); }
     @keyframes blink { 50% { opacity: 0; } }
 
-    /* ── SECTION WRAPPER ── */
-    .section {
-      padding: 70px 8%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .section { padding: 70px 8%; max-width: 1100px; margin: 0 auto; }
     .section-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      font-family: var(--mono); font-size: 11px;
+      color: var(--accent); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 12px;
     }
     .section h2 {
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
+      font-size: clamp(22px, 3vw, 34px); font-weight: 800;
+      letter-spacing: -0.5px; margin-bottom: 12px;
     }
-    .section-sub {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 48px;
-      max-width: 560px;
-    }
+    .section-sub { color: var(--muted); font-size: 15px; margin-bottom: 48px; max-width: 560px; }
 
-    /* ── FEATURES GRID ── */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
     .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: border-color .2s;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; transition: border-color .2s;
     }
     .feature-card:hover { border-color: var(--accent); }
-    .feature-icon {
-      font-size: 26px;
-      margin-bottom: 14px;
-    }
-    .feature-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .feature-card p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
+    .feature-icon { font-size: 26px; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-    /* ── TRUST BAR ── */
     .trust-bar {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -228,44 +144,27 @@
       padding: 24px 8%;
     }
     .trust-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
+      max-width: 1100px; margin: 0 auto;
+      display: flex; gap: 40px; flex-wrap: wrap;
+      align-items: center; justify-content: center;
     }
-    .trust-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 13px; color: var(--muted);
-    }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
     .trust-item span:first-child { color: var(--green); font-size: 16px; }
 
-    /* ── PRICING ── */
     .pricing-wrap {
       background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       padding: 70px 8%;
     }
-    .pricing-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .pricing-inner { max-width: 1100px; margin: 0 auto; }
     .pricing-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 700px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; max-width: 700px; margin: 0 auto;
     }
     .price-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      text-align: center;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px 28px; text-align: center;
     }
     .price-card.featured {
       border-color: var(--accent);
@@ -273,74 +172,43 @@
       position: relative;
     }
     .price-badge {
-      position: absolute;
-      top: -13px; left: 50%; transform: translateX(-50%);
-      background: var(--accent);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 14px;
-      border-radius: 20px;
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 4px 14px; border-radius: 20px;
     }
     .price-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-    .price-amount {
-      font-size: 48px;
-      font-weight: 800;
-      letter-spacing: -2px;
-      color: var(--text);
-      line-height: 1;
-    }
+    .price-amount { font-size: 48px; font-weight: 800; letter-spacing: -2px; color: var(--text); line-height: 1; }
     .price-currency { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
     .price-note { font-size: 12px; color: var(--muted); margin-top: 6px; margin-bottom: 24px; }
     .price-features { text-align: left; margin-bottom: 28px; }
     .price-features li {
-      font-size: 13px; color: var(--muted);
-      padding: 5px 0;
-      list-style: none;
-      display: flex; gap: 8px; align-items: flex-start;
+      font-size: 13px; color: var(--muted); padding: 5px 0;
+      list-style: none; display: flex; gap: 8px; align-items: flex-start;
     }
     .price-features li::before { content: '✓'; color: var(--green); flex-shrink: 0; }
     .price-card.dimmed { opacity: .55; }
 
-    /* ── POLICY ── */
-    .policy-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .policy-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-    }
+    .policy-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .policy-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
     .policy-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
-    .policy-card p  { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .policy-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
-    /* ── MODAL ── */
     .modal {
-      display: none; position: fixed;
-      inset: 0; z-index: 200;
-      background: rgba(0,0,0,.8);
-      backdrop-filter: blur(6px);
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,.8); backdrop-filter: blur(6px);
       align-items: center; justify-content: center;
     }
     .modal.open { display: flex; }
     .modal-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px;
-      max-width: 620px; width: 90%;
-      max-height: 80vh; overflow-y: auto;
-      position: relative;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px;
+      max-width: 620px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative;
     }
     .modal-box h2 { font-size: 20px; margin-bottom: 16px; color: var(--text); }
     .modal-box h3 { font-size: 14px; font-weight: 700; margin: 20px 0 6px; }
-    .modal-box p  { font-size: 13px; color: var(--muted); line-height: 1.8; }
-    .modal-box a  { color: var(--blue); }
+    .modal-box p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+    .modal-box a { color: var(--blue); }
     .modal-close {
       position: absolute; top: 16px; right: 20px;
       font-size: 22px; cursor: pointer; color: var(--muted);
@@ -348,12 +216,7 @@
     }
     .modal-close:hover { color: var(--text); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 40px 8%;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
+    footer { padding: 40px 8%; border-top: 1px solid var(--border); text-align: center; }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
     footer p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
     .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
@@ -364,12 +227,9 @@
     .footer-links button:hover { color: var(--text); }
     .sold-by {
       font-size: 11px; color: var(--muted);
-      margin-top: 16px;
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
+      margin-top: 16px; border-top: 1px solid var(--border); padding-top: 16px;
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .hero { grid-template-columns: 1fr; padding-top: 100px; }
       .pricing-cards { grid-template-columns: 1fr; }
@@ -379,16 +239,14 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Nexa<span>Cleaner</span> Pro</div>
-  <a href="#pricing" class="nav-cta">Get License — A$19</a>
+  <a href="https://akik.gumroad.com/l/nexacleaner-pro" target="_blank" class="nav-cta">Get License — A$19</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div>
-    <div class="hero-eyebrow">// Windows PC Cleaner · v1.0 · Launching July 3</div>
+    <div class="hero-eyebrow">// Windows PC Cleaner · v1.0 · Available Now</div>
     <h1>Clean your PC.<br><em>Own your license.</em><br>No subscriptions.</h1>
     <p class="hero-sub">
       NexaCleaner Pro removes junk files, clears tracking traces, and manages
@@ -396,12 +254,11 @@
       through v1.x, no data collected.
     </p>
     <div class="hero-actions">
-      <a href="#pricing" class="btn-primary">View Early Bird Pricing</a>
-      <a href="https://akik203.github.io/nexacleaner" target="_blank" class="btn-ghost">View Landing Page →</a>
+      <a href="https://akik.gumroad.com/l/nexacleaner-pro" target="_blank" class="btn-primary">Get Early Bird — A$19</a>
+      <a href="#features" class="btn-ghost">See What It Does →</a>
     </div>
   </div>
 
-  <!-- Terminal mockup -->
   <div class="terminal">
     <div class="terminal-bar">
       <div class="dot dot-r"></div>
@@ -423,7 +280,6 @@
   </div>
 </div>
 
-<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-inner">
     <div class="trust-item"><span>✓</span><span>No background services</span></div>
@@ -435,8 +291,7 @@
   </div>
 </div>
 
-<!-- FEATURES -->
-<div class="section">
+<div class="section" id="features">
   <div class="section-label">// what it does</div>
   <h2>12 tools. One installer.<br>Nothing running in the background.</h2>
   <p class="section-sub">
@@ -448,43 +303,36 @@
     <div class="feature-card">
       <div class="feature-icon">🧹</div>
       <h3>Junk File Cleaner</h3>
-      <p>Removes Windows Temp, application caches, browser junk, and log files.
-         Scans first, deletes only what you approve.</p>
+      <p>Removes Windows Temp, application caches, browser junk, and log files. Scans first, deletes only what you approve.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🔒</div>
       <h3>Privacy Cleaner</h3>
-      <p>Clears browser cookies, recent file lists, clipboard content, and
-         Windows tracking traces — fully offline, nothing transmitted.</p>
+      <p>Clears browser cookies, recent file lists, clipboard content, and Windows tracking traces — fully offline, nothing transmitted.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🗂️</div>
       <h3>Registry Cleaner</h3>
-      <p>Scans for invalid app paths, broken file extensions, and orphaned keys.
-         Backs up before fixing. Safe-first approach.</p>
+      <p>Scans for invalid app paths, broken file extensions, and orphaned keys. Backs up before fixing. Safe-first approach.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🚀</div>
       <h3>Startup Manager</h3>
-      <p>Lists every program that runs at Windows startup, shows its impact
-         level, and lets you disable or delete entries safely.</p>
+      <p>Lists every program that runs at Windows startup, shows its impact level, and lets you disable or delete entries safely.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🧠</div>
       <h3>Memory Optimizer</h3>
-      <p>Identifies and frees unused RAM allocation on demand without
-         aggressive flushing that can slow your system.</p>
+      <p>Identifies and frees unused RAM allocation on demand without aggressive flushing that can slow your system.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🛡️</div>
       <h3>Protection Module</h3>
-      <p>Blocks known tracking domains via the Windows hosts file.
-         Optional, user-controlled, and fully reversible.</p>
+      <p>Blocks known tracking domains via the Windows hosts file. Optional, user-controlled, and fully reversible.</p>
     </div>
   </div>
 </div>
 
-<!-- PRICING -->
 <div class="pricing-wrap" id="pricing">
   <div class="pricing-inner">
     <div class="section-label" style="text-align:center">// pricing</div>
@@ -493,18 +341,15 @@
     </h2>
     <p style="text-align:center; color:var(--muted); font-size:15px; margin-bottom:48px;">
       A$19 for the first 50 customers — then A$29. No subscriptions, ever.<br>
-      Payment processed securely by <strong style="color:var(--text)">Lemon Squeezy</strong>
-      (Merchant of Record — handles GST automatically).
+      Payment processed securely by <strong style="color:var(--text)">Gumroad</strong>.
+      Prices shown in AUD.
     </p>
 
     <div class="pricing-cards">
-      <!-- Early Bird -->
       <div class="price-card featured">
         <div class="price-badge">🔥 Early Bird</div>
         <div class="price-label">First 50 customers</div>
-        <div class="price-amount">
-          <span class="price-currency">A$</span>19
-        </div>
+        <div class="price-amount"><span class="price-currency">A$</span>19</div>
         <div class="price-note">One-time · no subscription</div>
         <ul class="price-features">
           <li>NexaCleaner Pro v1.0 license</li>
@@ -514,20 +359,17 @@
           <li>14-day money-back guarantee</li>
           <li>Email support</li>
         </ul>
-        <!-- REPLACE YOUR_LEMONSQUEEZY_LINK with your actual checkout URL after creating your product -->
-        <a href="YOUR_LEMONSQUEEZY_CHECKOUT_LINK"
-           class="btn-primary lemonsqueezy-button"
+        <a href="https://akik.gumroad.com/l/nexacleaner-pro"
+           target="_blank"
+           class="btn-primary"
            style="width:100%; text-align:center; display:block;">
           Purchase — A$19
         </a>
       </div>
 
-      <!-- Standard -->
       <div class="price-card dimmed">
         <div class="price-label">Standard price (after 50 sales)</div>
-        <div class="price-amount" style="color:var(--muted)">
-          <span class="price-currency" style="color:var(--muted)">A$</span>29
-        </div>
+        <div class="price-amount" style="color:var(--muted)"><span class="price-currency" style="color:var(--muted)">A$</span>29</div>
         <div class="price-note">Same license, same features</div>
         <ul class="price-features">
           <li>NexaCleaner Pro v1.0 license</li>
@@ -545,34 +387,28 @@
   </div>
 </div>
 
-<!-- UPGRADE POLICY -->
 <div class="section">
   <div class="section-label">// fair upgrade policy</div>
   <h2>No hidden pricing. Ever.</h2>
   <p class="section-sub">
-    We publish our version upgrade policy upfront so you know exactly what
-    you're buying before you pay.
+    We publish our version upgrade policy upfront so you know exactly what you're buying before you pay.
   </p>
   <div class="policy-cards">
     <div class="policy-card">
       <h3>✓ Free v1.x Updates</h3>
-      <p>Every feature, fix, and improvement released between v1.0 and v1.9 is
-         free for all license holders. Your purchase does not expire.</p>
+      <p>Every feature, fix, and improvement released between v1.0 and v1.9 is free for all license holders. Your purchase does not expire.</p>
     </div>
     <div class="policy-card">
       <h3>✓ No Forced Migration</h3>
-      <p>Your v1.x license remains active and fully functional indefinitely.
-         We will never remotely disable a purchased build.</p>
+      <p>Your v1.x license remains active and fully functional indefinitely. We will never remotely disable a purchased build.</p>
     </div>
     <div class="policy-card">
       <h3>✓ Discounted v2.0 Upgrade</h3>
-      <p>When v2.0 ships with major structural changes, existing license holders
-         can upgrade for A$10 — not the standard A$29 price.</p>
+      <p>When v2.0 ships with major structural changes, existing license holders can upgrade for A$10 — not the standard A$29 price.</p>
     </div>
     <div class="policy-card">
       <h3>✓ 14-Day Refund</h3>
-      <p>If the software doesn't work on your compatible Windows machine,
-         email us within 14 days for a full refund. No questions asked.</p>
+      <p>If the software doesn't work on your compatible Windows machine, email us within 14 days for a full refund. No questions asked.</p>
     </div>
   </div>
 </div>
@@ -582,14 +418,14 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('m-privacy')" aria-label="Close">×</button>
     <h2>Privacy Policy</h2>
-    <p><strong>Last updated: June 2026</strong> · Published by Nanosoft Computing (ABN holder, Australia)</p>
+    <p><strong>Last updated: June 2026</strong> · Published by Nanosoft Computers (Australia)</p>
     <h3>Data Collection</h3>
     <p>NexaCleaner Pro is a locally installed desktop application. All cleaning operations run entirely on your device. The software does not collect, transmit, or store any personal data, usage statistics, or system information to external servers.</p>
     <p>The only external network connection the application makes is a version check against a public GitHub URL to notify you of available updates. No personal identifiers are sent in this request.</p>
     <h3>License Validation</h3>
     <p>License keys are validated locally using a hardware fingerprint and a cryptographic signature. No online activation server is contacted after purchase.</p>
     <h3>Payment Processing</h3>
-    <p>Purchases are processed by <a href="https://www.lemonsqueezy.com" target="_blank">Lemon Squeezy</a>, who acts as Merchant of Record. Lemon Squeezy handles payment data, GST/tax compliance, and receipt delivery. Please refer to <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Lemon Squeezy's Privacy Policy</a> for details on how transactional data is handled.</p>
+    <p>Purchases are processed by <a href="https://gumroad.com" target="_blank">Gumroad</a>. Gumroad handles payment data and receipt delivery. Please refer to <a href="https://gumroad.com/privacy" target="_blank">Gumroad's Privacy Policy</a> for details on how transactional data is handled.</p>
     <h3>Contact</h3>
     <p>nanosoft.computers.au@gmail.com</p>
   </div>
@@ -601,13 +437,13 @@
     <h2>Terms of Service</h2>
     <p><strong>Last updated: June 2026</strong></p>
     <h3>License Grant</h3>
-    <p>Nanosoft Computing grants you a non-exclusive, non-transferable personal license to install and use NexaCleaner Pro on machines you own or control, within the v1.x release cycle.</p>
+    <p>Nanosoft Computers grants you a non-exclusive, non-transferable personal license to install and use NexaCleaner Pro on machines you own or control, within the v1.x release cycle.</p>
     <h3>Permitted Use</h3>
     <p>The software is licensed for personal and small-business use on compatible Windows devices. You may install it on up to 2 machines per license.</p>
     <h3>Restrictions</h3>
-    <p>You may not reverse engineer, redistribute, resell, or sublicense this software without written permission from Nanosoft Computing.</p>
+    <p>You may not reverse engineer, redistribute, resell, or sublicense this software without written permission from Nanosoft Computers.</p>
     <h3>Limitation of Liability</h3>
-    <p>The software is provided as-is. While every effort has been made to ensure safe operation, Nanosoft Computing is not liable for data loss resulting from user-approved cleaning operations. Always review scan results before confirming a clean.</p>
+    <p>The software is provided as-is. While every effort has been made to ensure safe operation, Nanosoft Computers is not liable for data loss resulting from user-approved cleaning operations. Always review scan results before confirming a clean.</p>
     <h3>Governing Law</h3>
     <p>These terms are governed by the laws of New South Wales, Australia.</p>
   </div>
@@ -621,25 +457,23 @@
     <h3>14-Day Money-Back Guarantee</h3>
     <p>If NexaCleaner Pro fails to function correctly on your compatible Windows device (Windows 10 or Windows 11, 64-bit), you are entitled to a full refund within 14 days of purchase.</p>
     <h3>How to Request</h3>
-    <p>Email <strong>nanosoft.computers.au@gmail.com</strong> with your Lemon Squeezy order number and a brief description of the issue. Refunds are processed within 5 business days. The associated license key will be revoked upon processing.</p>
+    <p>Email <strong>nanosoft.computers.au@gmail.com</strong> with your Gumroad order number and a brief description of the issue. Refunds are processed within 5 business days. The associated license key will be revoked upon processing.</p>
     <h3>Exclusions</h3>
     <p>Refunds are not available after 14 days, or where the software has functioned as described and the refund is requested due to a change of mind alone.</p>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <p>© 2026 Nanosoft Computing · All rights reserved · nanosoft.computers.au@gmail.com</p>
+    <p>© 2026 Nanosoft Computers · All rights reserved · nanosoft.computers.au@gmail.com</p>
     <div class="footer-links">
       <button onclick="openModal('m-privacy')">Privacy Policy</button>
       <button onclick="openModal('m-terms')">Terms of Service</button>
       <button onclick="openModal('m-refund')">Refund Policy</button>
     </div>
     <p class="sold-by">
-      Payments processed by <a href="https://www.lemonsqueezy.com" target="_blank"
-        style="color:var(--blue)">Lemon Squeezy</a> — Merchant of Record.
-      GST/VAT handled automatically. Prices shown in AUD.
+      Payments processed by <a href="https://gumroad.com" target="_blank" style="color:var(--blue)">Gumroad</a>.
+      Prices shown in AUD.
     </p>
   </div>
 </footer>
@@ -654,15 +488,10 @@
     document.body.style.overflow = '';
   }
   document.querySelectorAll('.modal').forEach(m => {
-    m.addEventListener('click', e => {
-      if (e.target === m) closeModal(m.id);
-    });
+    m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
   });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal.open')
-        .forEach(m => closeModal(m.id));
-    }
+    if (e.key === 'Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id));
   });
 </script>
 </body>

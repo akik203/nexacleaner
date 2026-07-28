@@ -159,8 +159,8 @@
     }
     .pricing-inner { max-width: 1100px; margin: 0 auto; }
     .pricing-cards {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 24px; max-width: 700px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; max-width: 980px; margin: 0 auto;
     }
     .price-card {
       background: var(--bg); border: 1px solid var(--border);
@@ -232,7 +232,7 @@
 
     @media (max-width: 700px) {
       .hero { grid-template-columns: 1fr; padding-top: 100px; }
-      .pricing-cards { grid-template-columns: 1fr; }
+      .pricing-cards { grid-template-columns: 1fr; max-width: 400px; }
       nav { padding: 12px 5%; }
     }
   </style>
@@ -241,25 +241,21 @@
 
 <nav>
   <div class="nav-logo">Nexa<span>Cleaner</span> Pro</div>
-  <div style="display:flex; align-items:center; gap:14px;">
-    <a href="#pricing" style="color:var(--muted); text-decoration:none; font-size:14px; font-weight:600;">Free Version</a>
-    <a href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro" target="_blank" class="nav-cta">Get License — A$19</a>
-  </div>
+  <a href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro" target="_blank" class="nav-cta">Get Started — Free</a>
 </nav>
 
 <div class="hero">
   <div>
     <div class="hero-eyebrow">// Windows PC Cleaner · v1.0.1 · Free &amp; Pro Available Now</div>
-    <h1>Clean your PC.<br><em>Own your license.</em><br>No subscriptions.</h1>
+    <h1>Clean your PC.<br><em>Free to start.</em><br>No subscriptions, ever.</h1>
     <p class="hero-sub">
       NexaCleaner removes junk files, clears tracking traces, and manages
-      startup apps — all locally on your machine. Start free with Quick Clean
-      &amp; Memory Cleaner, or unlock every tool with a one-time Pro license.
-      No data collected, ever.
+      startup apps — all locally on your machine. Start free with Quick
+      Clean &amp; Memory Cleaner, upgrade anytime for the full toolkit.
     </p>
     <div class="hero-actions">
-      <a href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro" target="_blank" class="btn-primary">Download Free</a>
-      <a href="#pricing" class="btn-ghost">Get Pro — A$19 →</a>
+      <a href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro" target="_blank" class="btn-primary">Download Free — A$0</a>
+      <a href="#pricing" class="btn-ghost">See Pro Features →</a>
     </div>
   </div>
 
@@ -341,24 +337,43 @@
   <div class="pricing-inner">
     <div class="section-label" style="text-align:center">// pricing</div>
     <h2 style="text-align:center; font-size:clamp(22px,3vw,34px); font-weight:800; letter-spacing:-0.5px; margin-bottom:10px;">
-      One-time purchase.<br>Yours to keep.
+      Start free.<br>Upgrade when you're ready.
     </h2>
     <p style="text-align:center; color:var(--muted); font-size:15px; margin-bottom:48px;">
-      A$19 for the first 50 customers — then A$29. No subscriptions, ever.<br>
+      Lite is free forever — no catch. Pro is A$19 for the first 50 customers, then A$29. No subscriptions, ever.<br>
       Payment processed securely by <strong style="color:var(--text)">Gumroad</strong>.
       Prices shown in AUD.
     </p>
 
     <div class="pricing-cards">
+      <div class="price-card">
+        <div class="price-label">Free forever</div>
+        <div class="price-amount"><span class="price-currency">A$</span>0</div>
+        <div class="price-note">No card, no catch, no time limit</div>
+        <ul class="price-features">
+          <li>Quick Clean (junk &amp; temp files)</li>
+          <li>Manual Memory Cleaner</li>
+          <li>No background services, no telemetry</li>
+          <li>Full app, no trial timer</li>
+        </ul>
+        <a href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro"
+           target="_blank"
+           class="btn-ghost"
+           style="width:100%; text-align:center; display:block;">
+          Download Free
+        </a>
+      </div>
+
       <div class="price-card featured">
         <div class="price-badge">🔥 Early Bird</div>
         <div class="price-label">First 50 customers</div>
         <div class="price-amount"><span class="price-currency">A$</span>19</div>
         <div class="price-note">One-time · no subscription</div>
         <ul class="price-features">
-          <li>NexaCleaner Pro v1.0 license</li>
+          <li>Everything in Free, plus:</li>
+          <li>Registry Cleaner, Deep Clean, Privacy Cleaner</li>
+          <li>Force Uninstaller &amp; Defragmentation</li>
           <li>All v1.x updates free forever</li>
-          <li>12 cleaning &amp; maintenance tools</li>
           <li>Discounted upgrade to v2.0 (A$10)</li>
           <li>14-day money-back guarantee</li>
           <li>Email support</li>
@@ -367,7 +382,7 @@
            target="_blank"
            class="btn-primary"
            style="width:100%; text-align:center; display:block;">
-          Purchase — A$19
+          Get Pro — A$19
         </a>
       </div>
 
@@ -376,12 +391,12 @@
         <div class="price-amount" style="color:var(--muted)"><span class="price-currency" style="color:var(--muted)">A$</span>29</div>
         <div class="price-note">Same license, same features</div>
         <ul class="price-features">
-          <li>NexaCleaner Pro v1.0 license</li>
+          <li>Everything in Free, plus:</li>
+          <li>Registry Cleaner, Deep Clean, Privacy Cleaner</li>
+          <li>Force Uninstaller &amp; Defragmentation</li>
           <li>All v1.x updates free forever</li>
-          <li>12 cleaning &amp; maintenance tools</li>
           <li>Discounted upgrade to v2.0 (A$10)</li>
           <li>14-day money-back guarantee</li>
-          <li>Email support</li>
         </ul>
         <div class="btn-ghost" style="text-align:center; opacity:.5; cursor:default;">
           Available after Early Bird

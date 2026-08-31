@@ -1,12 +1,11 @@
 {
-  "version": "1.1.0",
-  "notes": "Bug fixes: Quick Clean and Deep Clean confirmation dialogs now work correctly.",
-  "download": "https://github.com/akik203/nexacleaner/releases/download/v1.0.2/NexaCleanerPro_Setup_v1.0.2.exe",
+  "version": "1.1.5",
+  "notes": "Shortened trial to 3 days, added Orphaned App Finder improvements, honest trial-expiry countdown, Early Bird pricing through Sep 30.",
+  "download": "https://github.com/akik203/nexacleaner/releases/latest",
+
+  "early_bird_end_date": "2026-09-30T23:59:59",
   "early_bird_price": 19,
   "standard_price": 29,
-  "early_bird_limit": 50,
-  "early_bird_sold": 0,
-  "early_bird_active": true,
   "early_bird_url": "https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro",
   "standard_url": "https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro"
 }

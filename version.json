@@ -1,7 +1,7 @@
 {
   "version": "1.2.0",
   "notes": "Shortened trial to 3 days, added Orphaned App Finder improvements, honest trial-expiry countdown, Early Bird pricing through Sep 30.",
-  "download": "https://github.com/akik203/nexacleaner/releases/download/v1.2.0/NexaCleanerPro_Setup_v1.1.5.exe",
+  "download": "https://github.com/akik203/nexacleaner/releases/download/v1.2.0/NexaCleanerPro_Setup_v1.2.0.exe",
 
   "early_bird_end_date": "2026-09-30T23:59:59",
   "early_bird_price": 19,

@@ -137,6 +137,44 @@
     .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
     .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
+    .features-cta {
+      text-align: center; margin-top: 40px; padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .features-cta p { color: var(--muted); font-size: 15px; margin-bottom: 18px; }
+
+    .quarantine-wrap {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 70px 8%;
+    }
+    .quarantine-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .quarantine-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
+    }
+    .quarantine-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .quarantine-card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.7; }
+    .quarantine-card ul { list-style: none; }
+    .quarantine-card li {
+      font-size: 13px; color: var(--text); padding: 5px 0;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .quarantine-card li span { color: var(--green); flex-shrink: 0; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
     .trust-bar {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -246,7 +284,7 @@
 
 <div class="hero">
   <div>
-    <div class="hero-eyebrow">// Windows PC Cleaner · v1.1.5 · Free &amp; Pro Available Now</div>
+    <div class="hero-eyebrow">// Windows PC Cleaner · v1.2.0 · Free &amp; Pro Available Now</div>
     <h1>Clean your PC.<br><em>Free to start.</em><br>No subscriptions, ever.</h1>
     <p class="hero-sub">
       NexaCleaner removes junk files, clears tracking traces, and manages
@@ -305,7 +343,7 @@
 
 <div class="section" id="features">
   <div class="section-label">// what it does</div>
-  <h2>12 tools. One installer.<br>Nothing running in the background.</h2>
+  <h2>A full cleaning toolkit. One installer.<br>Nothing running in the background.</h2>
   <p class="section-sub">
     Every module runs on-demand. NexaCleaner Pro never installs a background
     service, never calls home, and never touches files outside the locations
@@ -347,6 +385,84 @@
       <h3>Orphaned App Finder <span style="color:var(--accent); font-size:11px; font-weight:700; letter-spacing:0.5px;">NEW</span></h3>
       <p>Finds leftover folders from apps you uninstalled long ago the ones regular uninstallers miss. Nothing is deleted outright: everything moves to a recoverable quarantine first.</p>
     </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧽</div>
+      <h3>Deep Clean</h3>
+      <p>Goes further than Quick Clean — Prefetch data, old installer leftovers, and other build-up regular cleaners skip. Scans first, you approve what's removed.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🗑️</div>
+      <h3>Force Uninstaller</h3>
+      <p>Removes stubborn programs that won't uninstall normally, including their leftover registry entries and folders.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⏱️</div>
+      <h3>Scheduler</h3>
+      <p>Set any module to run automatically on a schedule you choose — daily, weekly, or on startup.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💾</div>
+      <h3>Defragmentation</h3>
+      <p>Reorganizes fragmented data on traditional hard drives to speed up file access. Automatically skips SSDs, where defragmentation isn't needed.</p>
+    </div>
+  </div>
+  <div class="features-cta">
+    <p>Ready to clean your PC — safely?</p>
+    <a href="#pricing" class="btn-primary">See Pro Features →</a>
+  </div>
+</div>
+
+<div class="quarantine-wrap">
+  <div class="section" style="padding:0; max-width:1100px;">
+    <div class="section-label">// what makes this different</div>
+    <h2>The safety net other cleaners don't have</h2>
+    <p class="section-sub">Nothing gets deleted outright. Every risky operation has a built-in way back.</p>
+    <div class="quarantine-cards">
+      <div class="quarantine-card">
+        <h3>🗂️ Quarantine Vault</h3>
+        <p>When the Orphaned App Finder locates leftover files from apps you uninstalled, it doesn't delete them straight away. They move to a Quarantine Vault, right inside the same screen, where you can restore any file in one click or let them auto-clear after 30 days.</p>
+        <ul>
+          <li><span>✓</span>Files are vaulted, not deleted</li>
+          <li><span>✓</span>Restore any file with one click</li>
+          <li><span>✓</span>Auto-cleanup after 30 days, or do it manually anytime</li>
+          <li><span>✓</span>Everything in one screen — no hidden menus</li>
+        </ul>
+      </div>
+      <div class="quarantine-card">
+        <h3>🔐 Registry Cleaner — One-Click Restore</h3>
+        <p>Registry cleaning carries real risk, so before any change NexaCleaner backs up the affected keys automatically. If anything looks wrong afterward, one click rolls it back.</p>
+        <ul>
+          <li><span>✓</span>Automatic backup before every clean</li>
+          <li><span>✓</span>One-click rollback to the last backup</li>
+          <li><span>✓</span>Built right into the Registry Cleaner screen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="faq">
+  <div class="section-label">// common questions</div>
+  <h2>Before you buy</h2>
+  <div class="faq-item">
+    <h4>Is the Free version really free forever?</h4>
+    <p>Yes. Quick Clean (up to 500MB/day) and Memory Cleaner (once per day) — no card, no trial expiration, no catch.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What happens if a registry clean breaks something?</h4>
+    <p>Click Restore. NexaCleaner restores the registry from the backup it made before the clean — one click, built into the Registry Cleaner screen.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What's the difference between v1.x and v2.0?</h4>
+    <p>v1.x is everything you see today, with free updates throughout the v1.x release cycle. v2.0 will be a major architectural upgrade; existing Pro license holders can upgrade for A$10 instead of the standard A$29.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Does it work offline?</h4>
+    <p>Yes — 100% offline after installation. The only network call is an optional version check against a public GitHub URL.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What if I don't like it?</h4>
+    <p>14-day money-back guarantee. Email us with your order number and you're refunded, no questions asked.</p>
   </div>
 </div>
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexaCleaner Pro — Changelog</title>
+  <meta name="description" content="Release notes and version history for NexaCleaner Pro, the Windows PC cleaner by Nanosoft Computers." />
+  <style>
+    :root {
+      --bg:#0d1117; --surface:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+      --accent:#e36209; --accent-lt:#f0883e; --green:#3fb950; --blue:#58a6ff; --radius:10px;
+      --mono:'Cascadia Code','Fira Code','Consolas',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 8%;background:rgba(13,17,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-weight:800;font-size:18px;color:var(--text);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none}
+    .nav-cta:hover{background:var(--accent-lt)}
+    .wrap{max-width:820px;margin:0 auto;padding:110px 6% 70px}
+    .label{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:10px}
+    h1{font-size:clamp(28px,5vw,40px);margin-bottom:10px}
+    .sub{color:var(--muted);margin-bottom:40px}
+    .release{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;margin-bottom:24px}
+    .release-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:6px}
+    .release h2{font-size:22px}
+    .tag{font-family:var(--mono);font-size:12px;padding:2px 10px;border-radius:20px;border:1px solid var(--green);color:var(--green)}
+    .date{color:var(--muted);font-size:14px;margin-bottom:16px}
+    .release h3{font-size:14px;font-family:var(--mono);color:var(--accent-lt);margin:18px 0 8px;text-transform:uppercase;letter-spacing:.5px}
+    .release ul{list-style:none}
+    .release li{display:flex;gap:10px;padding:4px 0;font-size:15px;color:var(--text)}
+    .release li::before{content:"✓";color:var(--green);flex-shrink:0}
+    .release li.new::before{content:"+";color:var(--accent);font-weight:700}
+    .release li.fix::before{content:"•";color:var(--blue)}
+    .back{display:inline-block;margin-top:10px;color:var(--blue);text-decoration:none;font-size:14px}
+    .back:hover{text-decoration:underline}
+    footer{border-top:1px solid var(--border);padding:30px 8%;text-align:center;color:var(--muted);font-size:13px}
+    footer a{color:var(--blue);text-decoration:none}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Nexa<span>Cleaner</span> Pro</a>
+  <a class="nav-cta" href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro" target="_blank" rel="noopener">Get Started — Free</a>
+</nav>
+
+<main class="wrap">
+  <div class="label">// release notes</div>
+  <h1>Changelog</h1>
+  <p class="sub">Every release of NexaCleaner Pro. All v1.x updates are free for license holders.</p>
+
+  <section class="release" id="v1-2-0">
+    <div class="release-head"><h2>v1.2.0</h2><span class="tag">Current</span></div>
+    <div class="date">September 2026</div>
+    <h3>New</h3>
+    <ul>
+      <li class="new"><span><strong>Full UI redesign</strong> — a completely new interface across all modules.</span></li>
+      <li class="new"><span><strong>Orphaned App Finder</strong> — finds leftover folders from apps you uninstalled long ago, the ones regular uninstallers miss.</span></li>
+      <li class="new"><span><strong>Quarantine Vault</strong> — removed files are vaulted, not deleted. Restore any file in one click, or let them auto-clear after 30 days.</span></li>
+      <li class="new"><span><strong>Registry Cleaner one-click restore</strong> — automatic backup before every clean, with one-click rollback to the last backup.</span></li>
+    </ul>
+    <!-- Add any extra v1.2.0 fixes/improvements here:
+    <h3>Improved</h3>
+    <ul><li class="fix"><span>...</span></li></ul> -->
+  </section>
+
+  <section class="release" id="v1-1-x">
+    <div class="release-head"><h2>v1.0 – v1.1</h2></div>
+    <div class="date">2026</div>
+    <h3>Included</h3>
+    <ul>
+      <li><span>Junk File Cleaner, Privacy Cleaner, Registry Cleaner</span></li>
+      <li><span>Startup Manager, Memory Optimizer, Protection Module</span></li>
+      <li><span>Deep Clean, Force Uninstaller, Scheduler, Defragmentation</span></li>
+    </ul>
+  </section>
+
+  <a class="back" href="index.html">← Back to NexaCleaner Pro</a>
+</main>
+
+<footer>
+  <p>© 2026 Nanosoft Computers · <a href="mailto:nanosoft.computers.au@gmail.com">nanosoft.computers.au@gmail.com</a></p>
+</footer>
+</body>
+</html>

@@ -1,11 +1,8 @@
 {
   "version": "1.2.0",
-  "notes": "Full UI redesign across all dialogs, fixed hardcoded trial-expiry price, Registry Cleaner with automatic backup/restore, Orphaned App Finder with Quarantine Vault.",
+  "notes": "Full UI redesign across all dialogs, Registry Cleaner with automatic backup/restore, Orphaned App Finder with Quarantine Vault.",
   "download": "https://github.com/akik203/nexacleaner/releases/download/v1.2.0/NexaCleanerPro_Setup_v1.2.0.exe",
 
-  "early_bird_end_date": "2026-09-30T23:59:59",
-  "early_bird_price": 19,
   "standard_price": 29,
-  "early_bird_url": "https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro",
   "standard_url": "https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro"
 }

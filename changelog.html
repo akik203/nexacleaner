@@ -42,7 +42,7 @@
 <body>
 <nav>
   <a class="nav-logo" href="index.html">Nexa<span>Cleaner</span> Pro</a>
-  <a class="nav-cta" href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro" target="_blank" rel="noopener">Get Started — Free</a>
+  <a class="nav-cta" href="https://nanosoftcomputers.gumroad.com/l/nexacleaner-pro" target="_blank" rel="noopener">Download Free</a>
 </nav>
 
 <main class="wrap">
@@ -50,8 +50,29 @@
   <h1>Changelog</h1>
   <p class="sub">Every release of NexaCleaner Pro. All v1.x updates are free for license holders.</p>
 
+  <section class="release" id="v1-2-1">
+    <div class="release-head"><h2>v1.2.1</h2><span class="tag">Current</span></div>
+    <div class="date">October 2026</div>
+    <h3>Fixed</h3>
+    <ul>
+      <li class="fix"><span><strong>License key entry</strong> — 20-character keys are accepted, and typing, Ctrl+V and the Paste button all work.</span></li>
+      <li class="fix"><span><strong>Version display</strong> — the version shown on the Activation screen now comes from the app itself.</span></li>
+      <li class="fix"><span><strong>Protection status</strong> — shows a clear On/Off state instead of "Vulnerable".</span></li>
+    </ul>
+    <h3>Improved</h3>
+    <ul>
+      <li><span><strong>Hosts file handling</strong> — Protection marks its own entries and backs up your hosts file before changing it.</span></li>
+      <li><span><strong>Safer update checks</strong> — the app only follows trusted links and uses TLS 1.2.</span></li>
+    </ul>
+    <h3>Removed</h3>
+    <ul>
+      <li><span>Leftover internal stats code. It never sent any data; it is gone so the code matches the zero-telemetry promise.</span></li>
+      <li><span>The Early Bird offer (ended September 30).</span></li>
+    </ul>
+  </section>
+
   <section class="release" id="v1-2-0">
-    <div class="release-head"><h2>v1.2.0</h2><span class="tag">Current</span></div>
+    <div class="release-head"><h2>v1.2.0</h2></div>
     <div class="date">September 2026</div>
     <h3>New</h3>
     <ul>
@@ -60,9 +81,6 @@
       <li class="new"><span><strong>Quarantine Vault</strong> — removed files are vaulted, not deleted. Restore any file in one click, or let them auto-clear after 30 days.</span></li>
       <li class="new"><span><strong>Registry Cleaner one-click restore</strong> — automatic backup before every clean, with one-click rollback to the last backup.</span></li>
     </ul>
-    <!-- Add any extra v1.2.0 fixes/improvements here:
-    <h3>Improved</h3>
-    <ul><li class="fix"><span>...</span></li></ul> -->
   </section>
 
   <section class="release" id="v1-1-x">
